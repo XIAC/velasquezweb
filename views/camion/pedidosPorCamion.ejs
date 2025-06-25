@@ -1,0 +1,22 @@
+<h1>PEDIDOS POR CAMION</h1>
+<form method="GET" action="/reporte/pedidos-por-camion">
+    <label>Fecha Inicio:</label>
+    <input type="date" name="fechaInicio"  placeholder="Ingrese fecha inicio"/>
+    <label>Fecha Fin:</label>
+    <input type="date" name="fechaFin"  placeholder="Ingrese fecha final"/>
+    <button type="submit">Ver reporte</button>
+</form>
+<table border="1">
+    <tr>
+        <th>Placa</th>
+        <th>Total Peso Transportado</th>
+        <th>Total Volumen Transportado</th>
+    </tr>
+    <% pedidos.forEach( p => { %>
+        <tr>
+            <td> <%- p.Placa %> </td>
+            <td> <%- p.TotalPesoTransportado %>  </td>
+            <td> <%- p.TotalVolumenTransportado %> </td>
+        </tr>
+    <% }); %>
+</table>
