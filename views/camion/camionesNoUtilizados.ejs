@@ -1,19 +1,33 @@
+<% layout('index') %>
 <h1>CAMIONES NO UTILIZADOS</h1>
 <form method="GET" action="/reporte/camiones-no-utilizados">
-    <label>Fecha Inicio:</label>
-    <input type="date" name="fechaInicio"  placeholder="Ingrese fecha inicio"/>
-    <label>Fecha Fin:</label>
-    <input type="date" name="fechaFin"  placeholder="Ingrese fecha final"/>
-    <button type="submit">Ver reporte</button>
+
+        <div class="row col-12">
+            <div class="col-5">
+                <label>Fecha Inicio:</label>
+                <input class="form-control" type="date" name="fechaInicio"  placeholder="Ingrese fecha inicio"/>
+            </div>
+            <div class="col-5">
+                <label>Fecha Fin:</label>
+                <input class="form-control" type="date" name="fechaFin"  placeholder="Ingrese fecha final"/>
+            </div>
+            <div class="col-3 mt-3 mb-3">
+                <button class="btn btn-success" type="submit">Ver reporte</button>
+            </div>
+        </div>
+
+    
+    
+  
 </form>
-<table border="1">
-    <tr>
+<table class="table table-dark table-striped">
+    <tr class="table-info">
         <th>Placa</th>
         <th>Max Peso</th>
         <th>Max Volumen</th>
     </tr>
     <% camiones.forEach( c => { %>
-        <tr>
+        <tr class="table-secondary">
             <td> <%- c.Placa %> </td>
             <td> <%- c.MaxPeso %>  </td>
             <td> <%- c.MaxVolumen %> </td>

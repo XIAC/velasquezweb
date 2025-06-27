@@ -1,0 +1,31 @@
+<% layout('index') %>
+<h1>PEDIDOS ENTREGADOS</h1>
+<form method="GET" action="/reporte/pedidos-entregados">
+    <label>Fecha Inicio:</label>
+    <input type="date" name="fechaInicio"  placeholder="Ingrese fecha inicio"/>
+    <label>Fecha Fin:</label>
+    <input type="date" name="fechaFin"  placeholder="Ingrese fecha final"/>
+    <button type="submit">Ver reporte</button>
+</form>
+<table border="1">
+    <tr>
+        <TH>Fecha Entrega</TH>
+        <TH>Pedido ID</TH>
+        <TH>Peso</TH>
+        <TH>Volumen</TH>
+        <TH>Nombre</TH>
+        <TH>Direccion</TH>
+        <TH>Placa</TH>
+    </tr>
+    <% pedidos.forEach( p => { %>
+        <tr>
+            <td> <%- p.FechaEntrega %> </td>
+            <td> <%- p.PedidoID %>  </td>
+            <td> <%- p.Peso %> </td>
+            <td> <%- p.Volumen %> </td>
+            <td> <%- p.Nombre %>  </td>
+            <td> <%- p.Direccion %> </td>
+            <td> <%- p.Placa %> </td>
+        </tr>
+    <% }); %>
+</table>

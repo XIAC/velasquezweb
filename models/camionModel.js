@@ -23,3 +23,11 @@ exports.obtenerPedidosPorCamion = (fechaInicio, fechaFin, callback)=>{
         callback(null, resultado[0])
     })
 };
+
+exports.obtenerPedidosEntregados = (fechaInicio, fechaFin, callback)=>{
+     const consulta = 'CALL ReportePedidoEntregados (?, ?);';
+        db.query( consulta , [fechaInicio, fechaFin], (err, resultado) => {
+        if (err) return callback(err);
+        callback(null, resultado[0])
+    })
+};
